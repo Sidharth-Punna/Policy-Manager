@@ -11,6 +11,13 @@ Run the following command to install all the necessary dependencies:
 npm install
 \`\`\`
 
+## Setup .env file
+create a floder in the root directory 'config' add '.env' file in the folder 
+and add 
+following lines
+JWT_SECRET='your secret key'
+JWT_EXPIRES_IN=1h
+
 ## Set Up SQL Connection
 
 Configure your SQL database connection in the \`database.js\` file located in the \`Database\` folder.
