@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-require('dotenv').config({ path: './conifg/.env' });
+require('dotenv').config({ path: './config/.env' });
 const cookieParser = require('cookie-parser');
 
 const connection = require("./Database/database");

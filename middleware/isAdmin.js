@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken'); // Make sure you have jwt installed
-require('dotenv').config({ path: './conifg/.env' });
+require('dotenv').config({ path: './config/.env' });
 
 
 exports.verifyToken = (req, res, next)=> {
