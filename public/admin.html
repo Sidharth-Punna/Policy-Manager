@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NodeJs Assignment 9</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="./css/admin.css" />
+  </head>
+
+  <body>
+    <main class="contianer-fluid">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary rounded-2" >
+            <div class="container-fluid ">
+              <a class="navbar-brand" href="#">Admin</a>
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 justify-content-center">
+                  <li class="nav-item">
+                    
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#userForm" onclick="toggleFormDisplay('create')" id="addNewButton">Add New User</a>
+                  </li>
+                </ul>
+                <!-- <form class="d-flex me-2 " id="searchUser">
+                  <input
+                    class="form-control me-2"
+                    type="text"
+                    placeholder="User Id"
+                    name="id"
+                    required
+                  />
+                  <button class="btn btn-outline-success"  type="submit">
+                    Search
+                  </button>
+                </form> -->
+                <button type="button" class="btn btn-outline-danger mt-2 mt-lg-0"  id="signOut">Sign Out</button>
+              </div>
+            </div>
+        </nav>
+        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">User</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body" id="userModalBody">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div  class="rounded-3 border-2 border p-3"  id="pendindgRequestsContainer">
+          <h4 class="col col-12 position-relative " style="width: fit-content;">Pending Requests 
+            <span class="badge" id="badge">4</span>
+          </h4>
+          <div class="scrollContainer">
+
+            <table class="table" id="pendindgRequests">
+              <thead >
+                  <tr>
+                      <th>Req ID</th>
+                      <th>Added By</th>
+                      <th>Policy No.</th>
+                      <th>Insured Party</th>
+                      <th>Status</th>
+                      <th>Coverage</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody id="pendindgRequests-table-body">
+                  <!-- Rows will be inserted here via JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class=" temp row g-0 justify-content-between " style="margin-top: 20px;">
+          <div class="col col-lg-5 p-3 rounded-3 border-2 border " style="width: 40%;">
+            <h4>Snap Shot</h4>
+            <table class="table" id="snapShot">
+              <thead>
+                  <tr>
+                      <th style="width: 20%;">User Id</th>
+                      <th style="width: 50%;">User Name</th>
+                      <th style="width: 30%;">NO Of Policies</th>
+                  </tr>
+              </thead>
+              <tbody id="snapShot-table-body">
+                  <!-- Rows will be inserted here via JavaScript -->
+              </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-center m-0  pagination-sm" id="snapShot-pagination">
+                <!-- Pagination links will be inserted here via JavaScript -->
+            </ul>
+          </nav>
+
+          </div>
+          <div class="col col-lg-6 rounded-3 border-2 border p-3" style="width: 59%;">
+            <h4>Users</h4>
+            <table class="table" id="users">
+              <thead>
+                  <tr>
+                      <th style="width: 15%;" >User Id</th>
+                      <th style="width: 20%;" >User Name</th>
+                      <th style="width: 35%;" >email</th>
+                      <th style="width: 20%;" ></th>
+                  </tr>
+              </thead>
+              <tbody id="users-table-body">
+                  <!-- Rows will be inserted here via JavaScript -->
+              </tbody>
+            </table>
+            <nav>
+            <ul class="pagination justify-content-center m-0  pagination-sm" id="users-pagination">
+                <!-- Pagination links will be inserted here via JavaScript -->
+            </ul>
+            </nav>
+          </div>
+
+        </div>
+        <div  class="rounded-3 border-2 border p-3"  id="formContainer">
+          <form class="row row-cols-2 row-gap-3 rounded-3" id="userForm">
+            <h4 class="col col-12" id="heading">Add New User</h4>
+            <div class="col">
+              <input
+                class="col form-control"
+                type="text"
+                placeholder="User Name"
+                name="username"
+                id="username"
+                required
+              />
+            </div>
+            <div class="col">
+              <input
+                class="col form-control"
+                type="text"
+                placeholder="Email"
+                name="email"
+                id="email"
+                required
+              />
+            </div>
+            <div class="col">
+              <input
+                class="col form-control m-0"
+                type="password"
+                name="password"
+                id="password"
+                placeholder="password"
+                required
+              />
+            </div>
+            <div class="col">
+              <select class="form-select m-0" name="role" id="role" required>
+                <option selected>Role</option>
+                <option value="admin">Admin</option>
+                <option value="user">User</option>
+              </select>
+            </div>
+            <div class="col ">
+              <button class="btn btn-success" name="action" value="create" id="createUser" type="submit">
+                Create User
+              </button>
+              <button class="btn btn-warning" name="action" value="update" id="updateUser" type="submit">
+                Update User
+              </button>
+            </div>
+          </form>
+        </div>
+        
+    </main>
+    <script type="module" src="./js/admin.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

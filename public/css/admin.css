@@ -1,0 +1,99 @@
+body{
+    padding: 2% 4%;
+    width: 100%;
+
+    background-color: #ffffff;
+    background-image: radial-gradient(rgba(12, 12, 12, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px;
+  }
+
+  .temp{
+    /* height: 330px; */
+    width: 100%;
+  }
+  h4{
+    /* background-color: #89ABE3FF; */
+    text-decoration: underline;
+    color: #89ABE3FF;
+    padding: 0 10px;
+    border-radius: 2px;
+    /* height: 330px; */  }
+  .temp .col{
+    background-color: #ffffff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+
+  }
+  #pendindgRequests button{
+    padding: 0;
+    text-transform: capitalize;    
+    transition: text-decoration 0.3s ease-in-out; 
+    
+    &:hover{
+      text-decoration: underline;
+
+    }
+    &:active{
+      background-color: none;
+    }
+  }
+  #users button{
+    padding: 0;
+    text-transform: capitalize;    
+    transition: text-decoration 0.3s ease-in-out; 
+    
+    &:hover{
+      text-decoration: underline;
+
+    }
+    &:active{
+      background-color: none;
+    }
+  }
+  #formContainer ,#pendindgRequestsContainer{
+    background-color: #ffffff;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-top: 20px;
+
+  }
+  .scrollContainer{
+    max-height: 50vh !important ;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    scroll-padding-top: 24px;
+  }
+  .scrollContainer::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .scrollContainer::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #89ABE3FF;
+  }
+  #userForm input{
+    border:1px solid #89ABE3FF;
+
+  }
+  #userForm select{
+    border:1px solid #89ABE3FF;
+
+  }
+  #updateUser{
+    display: none;
+}
+
+.badge{
+  background-color: red;
+  height: 50%;
+  font-size: 10px;
+  margin-left: 5px;
+  /* align-self: center; */
+  text-decoration: none;
+  
+}
+
+.navbar-brand{
+  text-transform: capitalize;
+}
